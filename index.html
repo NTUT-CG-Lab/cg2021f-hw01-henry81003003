@@ -7,6 +7,7 @@
 		<link type="text/css" rel="stylesheet" href="main.css">
 	</head>
 	<body>
+		<div style="position: absolute; top:15px; left: 5px;" id="score_table"></div>
 		<div id="info">
 			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - TTFLoader using opentype by gero3
 			<br/>type to enter new text, drag to spin the text
@@ -60,7 +61,7 @@
 				//產生 "開啟自評表按鈕"
 				so.renderBtn(
 					//自評表按鈕插入位置
-					document.body,
+					document.getElementById("score_table"),
 					//自評表按鈕文字
 					"開啟自評表"
 				);
@@ -609,7 +610,7 @@
 				ply_parent.position.y = 250;
 				ply_parent.position.z = 150;
 
-				ply_parent.rotation.z = timer * (Math.PI / 180) * 10  + ( pointerX - pointerXOnPointerDown ) * 0.02;
+				ply_parent.rotation.z = -(timer * (Math.PI / 180) * 50  + ( pointerX - pointerXOnPointerDown ) * 0.02);
 
 				renderer.render( scene, camera );
 			}
