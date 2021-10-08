@@ -110,6 +110,9 @@
 			var hourBox, minuteBox, secondBox;
 			var hour_parent, minute_parent, second_parent;
 			var handHour, handMinute, handSecond;
+			
+			// for ply moving
+			var move_x = 10;
 
 			// Clock properties
 			var clock_Property = {
@@ -321,12 +324,16 @@
 					});
 					const ply_mesh = new THREE.Mesh( geometry, ply_material );
 					ply_parent.add(ply_mesh);
-					ply_parent.rotation.x = -Math.PI / 180 * 110;
-					ply_parent.rotation.z = -Math.PI / 180 * 150;
+					ply_parent.position.x = -500;
+					ply_parent.position.y = 140;
+					ply_parent.position.z = 50;
+					ply_parent.rotation.x = -Math.PI / 180 * 90;
+					// ply_parent.rotation.z = -Math.PI / 180 * 150;
 					ply_parent.scale.multiplyScalar(0.5);
 					ply_parent.castShadow = true;
 					ply_parent.recieveShadow = true;
 
+					// group.add(ply_parent);
 					scene.add(ply_parent);
 				});
 
@@ -600,10 +607,13 @@
 				requestAnimationFrame( ply_animate );
 				
 				const timer = Date.now() * 0.005;
-				
-				ply_parent.position.x = -500;
-				ply_parent.position.y = 250;
-				ply_parent.position.z = 150;
+
+				if (ply_parent.position.x <= -880 || ply_parent.position.x >= 880) {
+					move_x *= (-1);
+				}
+
+				ply_parent.rotation.x = - Math.PI / 180 * 90;
+				ply_parent.position.x += move_x;
 
 				ply_parent.rotation.z = -(timer * (Math.PI / 180) * 50  + ( pointerX - pointerXOnPointerDown ) * 0.02);
 
