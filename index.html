@@ -177,7 +177,6 @@
 
 				group = new THREE.Group();
 				group.position.y = 100;
-				// scene.rotation.x = 2 * Math.PI / 360 * 30;
 
 				clock_animation_group = new THREE.Group();
 				group.add(clock_animation_group);
@@ -267,7 +266,6 @@
 				}
 				time_group.position.y = 0;
 				time_group.rotation.x = Math.PI / 180 * -10;
-				// time_group.rotation.z = Math.PI / 180 * 10;
 				group.add(time_group);
 				scene.add(group);
 				
@@ -328,8 +326,7 @@
 					ply_parent.scale.multiplyScalar(0.5);
 					ply_parent.castShadow = true;
 					ply_parent.recieveShadow = true;
-					
-					// group.add(ply_parent);
+
 					scene.add(ply_parent);
 				});
 
@@ -509,7 +506,6 @@
 				textMesh1.position.z = 250;
 
 				textMesh1.rotation.x = -Math.PI / 180 * 70;
-				// textMesh1.rotation.y = Math.PI * 2;
 
 				group.add( textMesh1 );
 
@@ -604,8 +600,7 @@
 				requestAnimationFrame( ply_animate );
 				
 				const timer = Date.now() * 0.005;
-
-				// ply_parent.position.x = 10 * Math.sin(timer) * 2.5;
+				
 				ply_parent.position.x = -500;
 				ply_parent.position.y = 250;
 				ply_parent.position.z = 150;
